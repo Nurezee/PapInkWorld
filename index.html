@@ -1,0 +1,119 @@
+<!--  
+Création de la page d'accueil du site internet
+Contient un titre percutant comme "Paper & Ink", mais aussi "Create your manga publishing house";
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Description courte -->
+        <meta name="description" content="Paper & Ink is a revolutionary Life Sim RPG game in development by Nurezee Studios. As an otaku, you decide to create your Manga Publishing House...">
+        
+        <title>Paper & Ink ! [NEW]</title>
+
+        <!-- Feuille de style Font Awesome 7.3.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        
+        <!-- Lier "style.css" avec "index.html" -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/index.css">
+        
+    </head>
+
+    <body oncontextmenu="return false">
+
+        <!-- Audio et vidéo de fond (FHD, QHD, UHD et mobile)-->
+        <audio  id="info_audio" loop src="assets/audio.mp3"></audio>
+
+        <div class="background-video-fhd">
+            <video  src="assets/fondvideo.mp4" loop autoplay muted ></video>
+        </div>
+        <div class="background-video-qhd">
+            <video  src="assets/fondvideo_qhd.mp4" loop autoplay muted ></video>
+        </div>
+        <div class="background-video-uhd">
+            <video  src="assets/fondvideo_uhd.mp4" loop autoplay muted ></video>
+        </div>
+        <div class="background-video-mobile">
+            <video   src="assets/mobile_fondvideo.mp4" loop autoplay muted ></video>
+        </div>
+        <div class="background-video-qhd-mobile">
+            <video  src="assets/fondvideo_qhd-portrait.mp4" loop autoplay muted ></video>
+        </div>
+        <div class="background-video-uhd-mobile">
+            <video  src="assets//fondvideo_uhd-portrait.mp4" loop autoplay muted ></video>
+        </div>
+
+        <!-- Mise en place d'un écran de démarrage lors du chargement de la page web  -->
+        <div class="Splash-screen"> 
+            <!-- Titre présent sur l'écran de chargement de la page.  -->
+             <h3>Create Your Manga <br> Publishing House [Paper & Ink]</h3>
+        </div>
+
+        <!-- Construction de l'entête. -->
+        <header>
+            <!-- Création d'un titre. -->
+            <div class="Title">
+                <h3>Create Your Manga <br> Publishing House [Paper & Ink]</h3>
+            </div>
+
+            <!-- Déclaration des balises i, importées depuis Font-Awesome. -->
+            <div class="icon">
+                <i class="fa-solid fa-volume-xmark" style="color: rgb(255, 255, 255);"></i>
+                <i class="fa-solid fa-earth-americas" style="color: rgb(255, 255, 255);"></i>
+            </div>
+
+            
+            <!--Constitution des liens de navigations de la page.-->
+            <nav> 
+                <h3><a href=html/info.html  id="page_info">Info</a></h3>
+                <h3><a href="html/album.html" id="page_album">Album</a></h3>
+                <h3><a href="mailto:nurezeeproject@gmail.com"  id="page_contact">Reach us</a></h3>
+            </nav>
+        </header>
+
+        <!-- Construction du main -->
+        <main>
+            <section>
+
+                <!-- Illustration Paper and Ink -->
+                <img  id="PI_image" src="assets/paperandink.png" alt="illustration 'Paper and Ink'" >
+            
+                <div class="subtitles">
+                    <h3 id="tagline">Create ☞ Manage ☞ Upgrade</h3>
+                    <h3 id="description">Your own manga publishing house, <br> in the heart of Japan.</h3>
+                </div>
+
+                <!-- Lien de redirection vers STEAM -->
+                <div class="steam">
+                    <i id="steam_icon" class="fa-brands fa-steam" style="color: rgb(255, 255, 255);"></i>
+                    <a href="https://www.roblox.com/games/93639390217062/Create-Your-Manga-Publishing-House"><h3>Download on STEAM </h3></i></a>
+                </div>
+            </section>
+        
+        </main>
+
+        <!-- Construction du footer de la page -->
+        <footer>
+            <hr id="hr-one"/>
+            <section class="suivre">
+                <hr id="hr-three"/>
+                <h3>Suivez-nous</h3>
+                <div class="footer-icones">
+                    <a target="_blank" href="https://www.pixiv.net/en/users/113354608"><i class="fa-brands fa-pixiv" style="color: rgb(116, 192, 252);"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/@nrezee"><i class="fa-brands fa-youtube" style="color: rgb(255, 43, 43);"></i></a>
+                    <a target="_blank" href="https://discord.gg/eSqbtXdZ6"><i class="fa-brands fa-discord" style="color: rgb(0, 92, 255);"></i></a>           
+                </div>
+            </section>
+            <hr id="hr-two" />
+        </footer> 
+        <div class="RGPD">
+            <p id="droits">© 2026 Paper & Ink. Tout droits réservés</p>
+            <a href="/html/mentionslegales.html"><p id="mentions">Mentions légales | Politique de confidentialité </p></a>
+        </div>
+
+        <script src="/javascript/index.js"></script>
+    </body>
+</html>
+

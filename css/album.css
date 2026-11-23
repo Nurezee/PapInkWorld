@@ -1,0 +1,962 @@
+/* Style CSS pour la page Album */
+
+body{
+    background-color: rgb(69, 31, 22);
+}
+
+/* Personnalisation du fond de la page. */
+.gold_cave{
+    display: flex;
+    position: fixed;
+    width: 100vw;      
+    height: 100vh;    
+    object-fit: cover;
+    
+    filter: blur(1000px); 
+    z-index: -1; 
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* Personnalisation du titre "Album". */
+.Titre-album{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    cursor: default;
+    text-decoration: underline rgb(255, 255, 255);
+    text-underline-offset: 1em;
+
+    color: #fff !important;
+}
+
+/* Personnalisation de l'album 
+- Grid
+- 3 colonnes de 1frame égal
+*/
+.Images-album{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    width: 90vw;
+}
+
+/* Sélection des différentes box */
+.box + .box-video + .box-pfp{
+    position: relative;
+    overflow: hidden;
+}
+
+/* Personnalisation des images. */
+.box img, .box-pfp img{
+    outline: 4px solid rgba(255, 255, 255, 0.8);
+
+    /* Ajout d'ombres. */
+    box-shadow: 3px 3px 2px rgb(255, 255, 255), -3px -3px 2px rgb(255, 255, 255);
+    
+    border-radius: 10%;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: all 0.5s ease;
+}
+
+/* Placement de la photo de profil. */
+
+.box-pfp{
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+
+    position: relative
+}
+
+/* Création de contenu CSS sans ajouter de balises HTML
+Position absolute afin de positionner les enfants librement selon le parent */
+
+.box-pfp::before{
+    content: "@Nrezee YTB";
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    opacity: 0.6;
+    color: white;
+}
+
+.box-pfp::after{
+    content: "All rights reserved";
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+    opacity: 0.6;
+    color: white;
+}
+
+/* Block sur un lien, pour lui donner les propriétés de l'élément bloc. */
+.Lien-photo{
+    display: block;
+    position: relative;
+}
+
+/* Personnalisation du texte à l'intérieur du parent. */
+.Voir-texte{
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    font-size: 1.5em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.5s ease;
+}
+
+.Lien-photo:hover img{
+    outline: 4px solid rgba(0, 0, 0, 0.8);
+    box-shadow: inset 3px 3px 2px rgb(0, 0, 0, 0.8), inset -3px -3px 2px rgb(0, 0, 0, 0.8);
+    border-radius: 10%;
+}
+
+.Lien-photo:hover .Voir-texte{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10%;
+}
+
+/* Prévisualisation de l'image. */
+
+#preview{
+    display: none;
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    z-index: 2;
+
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 8px;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+}
+
+#preview img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    
+    object-fit: cover;
+}
+
+/* Personnalisation du fond noir. */
+.fond-noir{
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+
+    transition: all 0.2s ease;
+}
+
+@media screen and (width: 1080px) and (height: 1920px){
+    .background-video-fhd{
+        display: none;
+    }
+    
+    .background-video-mobile{
+        display: block;
+    }
+}
+
+
+@media screen and (width: 1920px) and (height: 1080px){
+    .background-video-fhd{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1080px) and (not (height: 3840px)) and (not (height: 2160px)){
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-mobile{
+        display: block ;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 0 10px 0 10px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (min-width: 1921px) and (height: 1080px){
+
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    hr{
+        font-size: 2px;
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-height: 1080px){
+    .background-video-fhd{
+        display: none;
+    }
+    
+    body{
+        
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* Media queries en QHD */
+
+@media screen and (max-width: 1080px) and (height: 2560px){
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-mobile{
+        display: none;
+    }
+
+    .background-video-qhd-mobile{
+        display: block;
+    }
+}
+
+
+@media screen and (width: 1440px) and (height: 2560px){
+    .background-video-fhd{
+        display: none;
+    }
+    .background-video-mobile{
+        display: none;
+    }
+
+    .background-video-qhd-mobile{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-height: 1439px){
+    
+    .background-video-fhd{
+        display: none;
+    }
+    
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+}
+
+@media screen and (min-width: 1081px) and (min-height: 1080px) and (max-height: 1440px){
+
+
+    .Title{
+        display: none;
+    }
+
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+@media screen and (max-width: 1440px) and (height: 1440px){
+    
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-qhd-mobile{
+        display: block ;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 0 10px 0 10px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (width: 2560px) and (max-height: 1440px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
+
+    .background-video-fhd{
+        display: none; 
+    }
+
+    .background-video-qhd{
+        display: block;
+    }
+}
+
+@media screen and (width: 2560px) and (min-height: 1440px){
+    
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-qhd{
+        display: block;
+    }
+
+    .Title{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 1921px) and (height: 1440px){
+
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    hr{
+        font-size: 2px;
+    }
+}
+
+/* Media queries en UHD */
+
+@media screen and (max-width: 1080px) and (height: 3840px){
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-mobile{
+        display: none;
+    }
+
+    .background-video-uhd-mobile{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1120px) and (max-width: 2559px) and (height: 2160px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-uhd-mobile{
+        display: block ;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 0 10px 0 10px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (min-width:980px) and (max-width: 1119px) and (height: 2160px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-uhd-mobile{
+        display: block ;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 0 10px 0 10px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (max-width: 979px) and (height: 2160px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 130%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    .background-video-uhd-mobile{
+        display: block ;
+    }
+
+    .Title{
+        display: none;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 0 10px 0 10px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (min-width: 1815px) and (max-width: 3839px) and (height: 3840px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 200%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    nav h3, .icon{
+        font-size: 3rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    .description{
+        padding: 30px 10px 0 30px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 5px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (min-width: 1815px) and (max-width: 3340px) and (height: 3840px){
+    .Title{
+        display: none;
+    }
+}
+
+@media screen and (min-width:980px) and (max-width: 1814px) and (height: 3840px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 200%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image_mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .Title{
+        display: none;
+    }
+
+
+    body{
+        background-color: rgb(194, 212, 225);
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    nav h3, .icon{
+        font-size: 2rem;
+    }
+
+    .icon{
+        margin: 140px 0 0 30px;
+    }
+
+    
+
+    .description{
+        padding: 80px 0 0 10px;
+    }
+    
+    .premier_paragraphe{
+        padding: 0 0 0 15px;
+    }
+
+
+    footer{
+        max-width: 100vw;
+        bottom: 0px;
+    }
+
+    .RGPD{
+        padding: 0 20px 0 0px;
+    }
+
+    hr{
+        height: 3px;
+    }
+}
+
+@media screen and (width: 3840px) {
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 200%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
+
+    .background-video-fhd{
+        display: none; 
+    }
+
+    .background-video-uhd{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 2161px) and (max-width: 3839px){
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 200%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    hr{
+        font-size: 2px;
+    }
+}
+
+
+/* Au delà */
+
+@media screen and (min-width: 3841px){
+
+    html {
+        /* Augmente la taille globale de référence (textes, boutons, conteneurs) */
+        /* de manière fluide et centrée, sans casser le layout */
+        font-size: 200%; 
+    }
+
+    body {
+        /* On s'assure que le body prend bien tout l'espace proprement sans absolu */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    
+    
+        background-image: url("assets/Info/white_background_image.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .background-video-fhd{
+        display: none;
+    }
+
+    hr{
+        font-size: 3px;
+    }
+}
+
+@media screen and (width: 2160px) and (height: 3840px){
+    .background-video-uhd{
+        display: block;
+    }
+}
+
+/* Global */
+
+@media screen and (max-width: 1455px ) {
+    .Title{
+        display: none;
+    }
+    
+}
+
