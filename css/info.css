@@ -150,12 +150,12 @@ footer, .RGPD{
     text-shadow: 3px 3px 5px var(--background-light) ;
 }
 
-#heavy, #ph, #ph-last{
+#heavy, .ph, #ph-last{
     transition: all 2s ease;
     color: black;
 }
 
-#heavy:hover, #ph:hover, #ph-last:hover{
+#heavy:hover, .ph:hover, #ph-last:hover{
     font-size: 1.6rem;
     text-shadow: 3px 3px 5px var(--background-light) ;
     color: #ffffff;
